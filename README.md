@@ -1,5 +1,5 @@
 # kmcalc
-Desenvolvido por Robson Machczew
+Desenvolvido por Robson Machczew usando Android.
 
 O APP realiza a busca por cidades e calcula o consumo de combustível conforme os dados passados.<br/>
 
