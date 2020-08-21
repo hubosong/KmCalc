@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/clMain"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        tools:context=".MapsActivity"/>
+
+    <!--
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fastbg"/>
+        -->
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#77000000"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lcMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="139dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="55dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/logo_app" />
+
+        <TextView
+            android:id="@+id/txtLogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#f80"
+            android:layout_marginTop="10dp"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:text="Descubra Consumo Gasolina"
+            app:layout_constraintTop_toBottomOf="@+id/img"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/llEdtTexts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="35dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtLogo">
+
+            <EditText
+                android:id="@+id/edtDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:drawableLeft="@drawable/ic_road"
+                android:drawablePadding="12dp"
+                android:elevation="5dp"
+                android:drawableTint="#888"
+                android:background="@drawable/edittext_bg"
+                android:textColorHint="#888"
+                android:textColor="#f80"
+                android:padding="10dp"
+                android:hint="Distance"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/edtFrom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:inputType="text"
+                android:drawableLeft="@drawable/ic_road"
+                android:drawablePadding="12dp"
+                android:elevation="5dp"
+                android:drawableTint="#888"
+                android:background="@drawable/edittext_bg"
+                android:textColorHint="#888"
+                android:textColor="#f80"
+                android:padding="10dp"
+                android:hint="Cidade Origem"/>
+
+            <EditText
+                android:id="@+id/edtTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:drawableLeft="@drawable/ic_road"
+                android:drawablePadding="12dp"
+                android:elevation="5dp"
+                android:drawableTint="#888"
+                android:background="@drawable/edittext_bg"
+                android:textColorHint="#888"
+                android:textColor="#f80"
+                android:padding="10dp"
+                android:hint="Cidade Destino"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="12dp">
+
+                <Switch
+                    android:id="@+id/switchBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:checked="false"
+                    android:theme="@style/Switch"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adicionar a volta"
+                    android:layout_marginBottom="12dp"
+                    android:textColor="#fff"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edtMedia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="numberDecimal"
+                    android:drawableLeft="@drawable/ic_media"
+                    android:drawablePadding="12dp"
+                    android:elevation="5dp"
+                    android:drawableTint="#888"
+                    android:background="@drawable/edittext_bg"
+                    android:textColorHint="#888"
+                    android:textColor="#f80"
+                    android:padding="10dp"
+                    android:hint="Consumo (+-)"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight=".1"
+                    android:padding="10dp"/>
+
+                <EditText
+                    android:id="@+id/edtPreco"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="numberDecimal"
+                    android:drawableLeft="@drawable/ic_money"
+                    android:drawablePadding="12dp"
+                    android:elevation="5dp"
+                    android:drawableTint="#888"
+                    android:background="@drawable/edittext_bg"
+                    android:textColorHint="#888"
+                    android:textColor="#f80"
+                    android:padding="10dp"
+                    android:hint="Preço (L)"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCalculator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="  C a l c u l a r  "
+            android:background="@drawable/button_bg"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/llEdtTexts"/>
+
+        <LinearLayout
+            android:id="@+id/llRes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_bg"
+            android:elevation="5dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnCalculator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#888"
+                        style="@style/TextAppearance.AppCompat.Small"
+                        android:text="Distancia (km): "/>
+
+                    <TextView
+                        android:id="@+id/txtResDist"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 km"
+                        android:textColor="#f80"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#888"
+                        style="@style/TextAppearance.AppCompat.Small"
+                        android:text="Consumo (l): "/>
+
+                    <TextView
+                        android:id="@+id/txtResConsumo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#f80"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:text="0 l"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llPrevisao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#888"
+                        style="@style/TextAppearance.AppCompat.Small"
+                        android:text="Previsão Chegada: "/>
+
+                    <TextView
+                        android:id="@+id/txtResTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#f80"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:text="hh:mm"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:textColor="#888"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:text="Total (R$): "/>
+
+                <TextView
+                    android:id="@+id/txtResValor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#f80"
+                    android:textSize="35sp"
+                    android:text="0,00"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/llProgress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#aa000000"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="20dp"
+        android:alpha="0">
+
+        <ProgressBar
+            android:id="@+id/progWait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar"
+            android:indeterminateTint="#fff"
+            app:layout_constraintBottom_toTopOf="@+id/txtWait"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/txtWait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consultando.."
+            android:textColor="#fff"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
